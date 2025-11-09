@@ -1,0 +1,244 @@
+/* ---------------------------
+   ATHENA DEVIKA — Style Sheet
+   Cozy earthy tones & soft layout
+----------------------------- */
+
+:root {
+  --bg: #f9f6f3;
+  --card: #ffffff;
+  --muted: #5f5f5f;
+  --accent: #8b2b1f;   /* Deep red (Athena’s coat) */
+  --accent-2: #3d5a40; /* Forest green for contrast */
+  --radius: 14px;
+  --maxw: 980px;
+  --drop: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-family: "Poppins", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ----- Global Layout ----- */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, var(--bg), #f1ede9);
+  color: #222;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Wrapper */
+.wrap {
+  width: 100%;
+  max-width: var(--maxw);
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: var(--drop);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----- Left Profile Column ----- */
+.profile {
+  background: linear-gradient(180deg, rgba(139,43,31,0.07), rgba(61,90,64,0.05));
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.svg-portrait {
+  width: 220px;
+  height: 220px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fff7f5, #fefbf8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.svg-portrait:hover {
+  transform: scale(1.03);
+}
+
+/* Ears perk-up animation toggle */
+.ear {
+  transform-origin: center bottom;
+  transition: transform 0.3s ease;
+}
+
+.alert .ear-left {
+  transform: rotate(-12deg) translateY(-6px);
+}
+.alert .ear-right {
+  transform: rotate(12deg) translateY(-6px);
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.badge {
+  background: rgba(139,43,31,0.08);
+  padding: 6px 12px;
+  border-radius: 999px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.pill {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ----- Right Content Column ----- */
+.content {
+  padding: 32px;
+  background-color: #fff;
+}
+
+.section {
+  margin-bottom: 1.5rem;
+  background: linear-gradient(180deg, #ffffff, #fdfbf9);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+}
+
+.section h2 {
+  color: var(--accent-2);
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.section p {
+  color: var(--muted);
+}
+
+/* Timeline chips */
+.timeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.chip {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ----- Gallery Section ----- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.photo {
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* ----- Buttons ----- */
+.btn {
+  background: var(--accent);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(139,43,31,0.12);
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: #a33a2b;
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 1px solid rgba(139,43,31,0.25);
+  color: var(--accent);
+}
+
+.btn.secondary:hover {
+  background: rgba(139,43,31,0.05);
+}
+
+/* ----- Footer ----- */
+footer {
+  text-align: left;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+footer strong {
+  color: var(--accent);
+}
+
+/* ----- Utility & Print ----- */
+.muted { color: var(--muted); }
+
+@media print {
+  body {
+    background: #fff;
+  }
+  .wrap {
+    box-shadow: none;
+  }
+  .btn {
+    display: none;
+  }
+}
